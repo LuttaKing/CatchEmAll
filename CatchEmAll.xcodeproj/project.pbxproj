@@ -8,17 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		DA4031112C29E6D900255AB6 /* CatchEmAllApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4031102C29E6D900255AB6 /* CatchEmAllApp.swift */; };
-		DA4031132C29E6D900255AB6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4031122C29E6D900255AB6 /* ContentView.swift */; };
+		DA4031132C29E6D900255AB6 /* CreatureListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4031122C29E6D900255AB6 /* CreatureListView.swift */; };
 		DA4031152C29E6DB00255AB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4031142C29E6DB00255AB6 /* Assets.xcassets */; };
 		DA4031182C29E6DB00255AB6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4031172C29E6DB00255AB6 /* Preview Assets.xcassets */; };
+		DA40311F2C29EDBF00255AB6 /* CreatureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA40311E2C29EDBF00255AB6 /* CreatureViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DA40310D2C29E6D900255AB6 /* CatchEmAll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatchEmAll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA4031102C29E6D900255AB6 /* CatchEmAllApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchEmAllApp.swift; sourceTree = "<group>"; };
-		DA4031122C29E6D900255AB6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DA4031122C29E6D900255AB6 /* CreatureListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureListView.swift; sourceTree = "<group>"; };
 		DA4031142C29E6DB00255AB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA4031172C29E6DB00255AB6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DA40311E2C29EDBF00255AB6 /* CreatureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +54,8 @@
 			isa = PBXGroup;
 			children = (
 				DA4031102C29E6D900255AB6 /* CatchEmAllApp.swift */,
-				DA4031122C29E6D900255AB6 /* ContentView.swift */,
+				DA4031122C29E6D900255AB6 /* CreatureListView.swift */,
+				DA40311E2C29EDBF00255AB6 /* CreatureViewModel.swift */,
 				DA4031142C29E6DB00255AB6 /* Assets.xcassets */,
 				DA4031162C29E6DB00255AB6 /* Preview Content */,
 			);
@@ -137,8 +140,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA4031132C29E6D900255AB6 /* ContentView.swift in Sources */,
+				DA4031132C29E6D900255AB6 /* CreatureListView.swift in Sources */,
 				DA4031112C29E6D900255AB6 /* CatchEmAllApp.swift in Sources */,
+				DA40311F2C29EDBF00255AB6 /* CreatureViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
