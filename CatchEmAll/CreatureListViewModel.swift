@@ -7,25 +7,22 @@
 
 import Foundation
 
-class CreatureViewModel: ObservableObject {
+@MainActor
+class CreatureListViewModel: ObservableObject {
     
-    struct Resul: Codable, Hashable { // VERY Important, JSON values are Codable. i.e they use encode and decode
-        // Hashable is to allow iteration like with for each
-        var name: String
-        var url: String
-    }
+  
     
     private struct ReturnedData: Codable {
         //identicle to the Json we want to retrieve
         var count: Int
         var next: String
-        var results:[Resul]
+        var results:[PokeMon]
         
     }
     
     @Published var urlString: String = "https://pokeapi.co/api/v2/pokemon"
-    @Published var count = 0
-    @Published var creaturesArray:[Resul] = []
+    @Published var count = 0 //published means it will emit a value when shit changes
+    @Published var creaturesArray:[PokeMon] = []
     
     func fetchData() async {
         
@@ -45,7 +42,6 @@ class CreatureViewModel: ObservableObject {
             self.urlString = returned.next
             self.creaturesArray = returned.results
             
-        //    print("Nice JSON: count: \(returned.count), next: \(returned.next)")
             
             
         } catch {
