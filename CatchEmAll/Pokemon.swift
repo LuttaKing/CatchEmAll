@@ -12,4 +12,6 @@ struct PokeMon: Codable, Hashable {
     // Hashable is to allow iteration like with for each
     var name: String
     var url: String
+    
+    //check out coding keys: https://youtu.be/kzRyXYrDTRI
 }

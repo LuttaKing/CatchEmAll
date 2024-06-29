@@ -11,35 +11,62 @@ struct CreatureListView: View {
     
     @StateObject var creaturesVM = CreatureListViewModel()
     
+    @State private var searchText = ""
+    var searchResults:[PokeMon] {
+        if searchText.isEmpty{
+            return creaturesVM.creaturesArray //just return everything
+        }
+        else{
+            return creaturesVM.creaturesArray.filter{
+                $0.name.contains(searchText)
+            }
+        }
+    }
+    
     var body: some View {
         NavigationStack{
-           // List(creaturesVM.creaturesArray,id: \.self) { creature in
-            List(0..<creaturesVM.creaturesArray.count,id: \.self) { index in
-               
-                NavigationLink{
-                    DetailView(creature: creaturesVM.creaturesArray[index])
-                } label: {
-                    Text("\(index). \(creaturesVM.creaturesArray[index].name)")
-                        .font(.title2)
+            
+            ZStack {
+                // List(creaturesVM.creaturesArray,id: \.self) { creature in
+                List(searchResults,id: \.self) { creature in //with search
+                    
+                    NavigationLink{
+                        DetailView(creature:creature)
+                    } label: {
+                        Text("\(creature.name)")
+                           // .font(.title2)
+                    }
+                    
+                    
                 }
                 
-              
-            }
-            
-            .listStyle(.plain)
-            .navigationTitle("Pokemon")
-            .toolbar {
-                ToolbarItem(placement: .bottomBar) {
-                    
-                    Text("\(creaturesVM.creaturesArray.count) of \(creaturesVM.count)")
-                    
+                .listStyle(.plain)
+                .navigationTitle("Pokemon")
+                .toolbar {
+                    ToolbarItem(placement: .bottomBar) {
+                        
+                        Text("\(creaturesVM.creaturesArray.count) of \(creaturesVM.count)")
+                        
+                    }
                 }
+                .searchable(text: $searchText)
+                
+                if creaturesVM.isFetching{
+                    ProgressView()
+                        .tint(.blue).scaleEffect(3)
+                }
+              
+                
             }
         }
         .task {
             await creaturesVM.fetchData()
         }
     }
+    
+   
+    
+    
 }
 
 #Preview {

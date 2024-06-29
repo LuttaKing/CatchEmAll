@@ -27,10 +27,12 @@ struct DetailView: View {
                 AsyncImage(url: URL(string: detailVM.imageUrl)) { image in
                     image.resizable()
                         .scaledToFit()
+                    
                 } placeholder: {
                     Image(systemName: "person")
                         .resizable()
                         .scaledToFit()
+                        .padding()
                 }
                 .background(.white)
                 .frame(maxHeight: 96)

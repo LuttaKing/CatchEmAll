@@ -23,18 +23,21 @@ class CreatureListViewModel: ObservableObject {
     @Published var urlString: String = "https://pokeapi.co/api/v2/pokemon"
     @Published var count = 0 //published means it will emit a value when shit changes
     @Published var creaturesArray:[PokeMon] = []
+    @Published var isFetching = false
     
     func fetchData() async {
         
+        isFetching = true
         
-        //convert string to url type
         guard let url = URL(string: urlString)  else { print("Could not create url")
+            isFetching = false
             return
         }
         
         do {
             let (data, response) = try await URLSession.shared.data(from: url)
             guard let returned = try? JSONDecoder().decode(ReturnedData.self ,from: data) else {
+                isFetching = false
                 print("Could not decode Json Data")
                 return
             }
@@ -42,9 +45,12 @@ class CreatureListViewModel: ObservableObject {
             self.urlString = returned.next
             self.creaturesArray = returned.results
             
+            isFetching = false
+            
             
             
         } catch {
+            isFetching = false
             print("err")
         }
         
